@@ -3,6 +3,7 @@ from collections import Counter
 ages = map(int, open('day06.txt').read().split(','))
 fish = Counter(ages)
 
+
 def step():
     global fish
     next_fish = Counter()
@@ -11,6 +12,7 @@ def step():
     for i in range(1, 9):
         next_fish[i - 1] += fish[i]
     fish = next_fish.copy()
+
 
 for _ in range(80):
     step()

@@ -1,11 +1,13 @@
 lines = open('day03.txt').read().splitlines()
 
+
 def count_has_ones(vals: list[str], bit: int) -> int:
     count = 0
     for v in vals:
         if v[bit] == '1':
             count += 1
     return count
+
 
 n = len(lines[0])
 m = len(lines)

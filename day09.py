@@ -3,9 +3,11 @@ from collections import deque
 from functools import reduce
 from operator import mul
 
-grid = [[int(x) for x in line] for line in open('day09.txt').read().splitlines()]
+grid = [[int(x) for x in line]
+        for line in open('day09.txt').read().splitlines()]
 n = len(grid)
 m = len(grid[0])
+
 
 def low(row: int, col: int) -> bool:
     if row > 0 and grid[row - 1][col] <= grid[row][col]:
@@ -17,6 +19,7 @@ def low(row: int, col: int) -> bool:
     if col < m - 1 and grid[row][col + 1] <= grid[row][col]:
         return False
     return True
+
 
 def bfs(row: int, col: int) -> int:
     queue = deque([(row, col)])
@@ -36,12 +39,13 @@ def bfs(row: int, col: int) -> int:
         queue.append((row, col + 1))
     return size
 
+
 risk_sum = 0
 basins = []
 for i in range(n):
     for j in range(m):
         if low(i, j):
-            risk_sum += grid[i][j] + 1 
+            risk_sum += grid[i][j] + 1
             basins.append(bfs(i, j))
 
 print(f'Part 1: {risk_sum}')

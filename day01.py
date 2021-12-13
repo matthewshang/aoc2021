@@ -7,6 +7,7 @@ def part1(measures: list[int]) -> int:
         prev = cur
     return increases
 
+
 def part2(measures: list[int]) -> int:
     cur = sum(measures[:3])
     prev = cur
@@ -17,6 +18,7 @@ def part2(measures: list[int]) -> int:
             increases += 1
         prev = cur
     return increases
+
 
 with open('day01.txt') as f:
     measures = [int(x) for x in f]
