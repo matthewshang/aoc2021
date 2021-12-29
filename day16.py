@@ -30,20 +30,13 @@ class OperatorPacket(Packet):
     def eval(self) -> int:
         results = [subpacket.eval() for subpacket in self.contents]
         match self.type_id:
-            case 0:
-                return reduce(operator.add, results)
-            case 1:
-                return reduce(operator.mul, results, 1)
-            case 2:
-                return reduce(min, results)
-            case 3:
-                return reduce(max, results)
-            case 5:
-                return results[0] > results[1]
-            case 6:
-                return results[0] < results[1]
-            case 7:
-                return results[0] == results[1]
+            case 0: return reduce(operator.add, results)
+            case 1: return reduce(operator.mul, results, 1)
+            case 2: return reduce(min, results)
+            case 3: return reduce(max, results)
+            case 5: return results[0] > results[1]
+            case 6: return results[0] < results[1]
+            case 7: return results[0] == results[1]
 
 
 class Parser:
